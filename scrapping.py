@@ -22,7 +22,7 @@ def url_scrap(url):
             
     titles = bsObj.find_all(['h1', 'h2','h3','h4'])
  
-    for i in range(0,len(titles)):
+    for i in range(len(titles)):
 
         info['heading'+str(i)] = titles[i].text.split('¶')[0]
 
@@ -65,8 +65,8 @@ def scrap(input_url):
 
                 link_info.append(a)
                  
-        except:
-            pass;
+        except Exception as e:
+            print(e)
 
     Entire_data['urls'] = urls
     Entire_data['link_info'] = link_info
